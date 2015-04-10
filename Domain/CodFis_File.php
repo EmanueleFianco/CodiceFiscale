@@ -16,11 +16,11 @@ try {
 /*
 Si richiama la funzione per calcolare il codice fiscale
 */
-	$persona = new persona($dati['nome'],$dati['cognome'],$dati['data'],$dati['comune'],$dati['provincia'],$dati['sesso']); 
+	$persona = new Persona($dati['nome'],$dati['cognome'],$dati['data'],$dati['comune'],$dati['provincia'],$dati['sesso']);
     
 	$codice_fiscale = new CodiceFiscale($persona);
 
-	print "$persona"."Codice Fiscale:$codice_fiscale \n\n\n\n";
+	print "$persona\n$codice_fiscale\n";
 
 
 } catch (Exception $e) {

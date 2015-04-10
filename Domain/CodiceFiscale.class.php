@@ -55,12 +55,11 @@ class CodiceFiscale {
 		La funzione trim() serve per eliminare eventuali caratteri speciali a inizio e fine stringa (spazio o return)*/
 
 
-		$cognome = CodiceFiscale::calcoloconsonanti($persona->get_Cognome(), "cognome");
-		$nome = CodiceFiscale::calcoloconsonanti($persona->get_Nome(),"nome");
-		$data = CodiceFiscale::calcolodata($persona->get_Nascita(),$persona->get_Sesso());
+		$cognome = CodiceFiscale::calcoloconsonanti($persona->getCognome(), "cognome");
+		$nome = CodiceFiscale::calcoloconsonanti($persona->getNome(),"nome");
+		$data = CodiceFiscale::calcolodata($persona->getNascita(),$persona->getSesso());
 		$comune = $persona->getCodiceIstat();
 		$controllo = CodiceFiscale::calcolocontrollo("$cognome" . "$nome" . "$data" . "$comune");
-		var_dump($controllo);
 		return trim($cognome . $nome . $data . $comune . $controllo);
 	}
 
@@ -109,7 +108,6 @@ class CodiceFiscale {
   */
 
 	static function calcolodata($data, $sesso) {
-	
 		if (!Controlli::verificasesso($sesso)) {
 			throw new Exception("Sesso errato, inserire M o F", 5);
 		}
@@ -128,15 +126,13 @@ class CodiceFiscale {
 						   '11' => "S",
 						   '12' => "T");
 		$mese = $data->format('n');
-		$giorno = $data->format('d');
-
 		$mese = "$listamesi[$mese]"; //Si trasforma il mese nella lettera corrispondente
 
-
 		if ($sesso == "F") { //Se il sesso è femminile allora si aggiunge 40 al giorno di nascita
-			$giorno = 40 + $data->format('d');
-
-		} 
+			$giorno = 40 + $data->format('j');
+		} else {
+			$giorno = $data->format('d');
+		}
 	
 		return trim("$anno" . "$mese" . "$giorno"); //Si restituisce il risultato nel formato previsto dal CF
 	}
@@ -258,13 +254,17 @@ class CodiceFiscale {
 		return $resti[$resto]; //Si restituisce il carattere di controllo relativo al valore del resto ottenuto
 	}
 
+	public function getCodice() {
+		return trim($this->codice);
+	}
+
 /**
  * Override the 'Magic method' toString() and  return the tax code
  * @return string 
  */
 
 	public function __toString() {
-		return trim($this->codice);
+		return trim("Codice Fiscale: $this->codice");
 	}
 
 }
