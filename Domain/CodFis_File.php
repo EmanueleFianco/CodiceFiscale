@@ -8,7 +8,7 @@ while (!feof($handle)) {
 	$dati[strtolower($tipo)] = trim(strtoupper($info)); //Inserisce l'informazione appena letta in un array
 }
 try {
-	if (sizeof($dati) != 7 || !isset($dati['cognome']) || !isset($dati['nome']) || !isset($dati['data']) ||
+	if (sizeof($dati) != 6 || !isset($dati['cognome']) || !isset($dati['nome']) || !isset($dati['data']) ||
 		!isset($dati['sesso']) || !isset($dati['provincia']) || !isset($dati['comune'])) {
 			throw new Exception("Errore nei dati", 1);
 	}
@@ -17,9 +17,11 @@ try {
 Si richiama la funzione per calcolare il codice fiscale
 */
 	$persona = new persona($dati['nome'],$dati['cognome'],$dati['data'],$dati['comune'],$dati['provincia'],$dati['sesso']); 
-
+    
 	$codice_fiscale = new CodiceFiscale($persona);
-	print "$persona \n $codice_fiscale";
+
+	print "$persona"."Codice Fiscale:$codice_fiscale \n\n\n\n";
+
 
 } catch (Exception $e) {
 	print $e->getMessage() . "\n";
@@ -27,16 +29,4 @@ Si richiama la funzione per calcolare il codice fiscale
 	fclose($handle);
 }
 
-/*print $persona->get_fiscale();
-$persona->setNome("Mario");
-$persona->setCognome("Fianco");
-$persona->setData("14/05/1963", "F");
-print $persona;
-$persona->setSesso("M");
-$persona->setProvinciacomune("fr","anagni");
-print $persona;
-$persona->setSesso("F");
-print $persona;
-$persona->setcLive("Como");
-var_dump($persona);*/
 ?>

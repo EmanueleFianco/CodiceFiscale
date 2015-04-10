@@ -34,7 +34,7 @@ class Controlli {
 	 */
 
 	static function formatodatavalido($data) {
-		if (!(48 <= ord($data{0}) && ord($data{0}) <= 57) || !(48 <= ord($data{1}) && ord($data{1}) <= 57) || $data{2} != "/" ||
+			if (!(48 <= ord($data{0}) && ord($data{0}) <= 57) || !(48 <= ord($data{1}) && ord($data{1}) <= 57) || $data{2} != "/" ||
 		    !(48 <= ord($data{3}) && ord($data{3}) <= 57) || !(48 <= ord($data{4}) && ord($data{4}) <= 57) || $data{5} != "/" ||
 		    !(48 <= ord($data{6}) && ord($data{6}) <= 57) || !(48 <= ord($data{7}) && ord($data{7}) <= 57) ||
 			!(48 <= ord($data{8}) && ord($data{8}) <= 57) || !(48 <= ord($data{9}) && ord($data{9}) <= 57) || strlen($data) != 10) {

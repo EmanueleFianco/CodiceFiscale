@@ -39,7 +39,7 @@ Class Comune {
 	}
 
 	public function __toString() {
-		return "\ncittà: $this->$citta \ncomune:$this->provincia";
+		return "città: $this->citta \ncomune:$this->provincia";
 	}
 
 

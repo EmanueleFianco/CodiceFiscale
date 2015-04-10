@@ -121,8 +121,8 @@ class Persona {
   }
   
   public function get_Nascita() {
-    $data = $this->nascita->format('d/m/Y');
-    
+    $data = $this->nascita;
+
   	return $data;
   }
     
@@ -144,9 +144,10 @@ class Persona {
 
   public function __toString() {
     $data = $this->nascita->format('d/m/Y');
-    return "\nNome: $this->$nome \nCognome: $this->cognome \nData di nascita: $data \nSesso: $this->sesso \n$this->comune\n";
+    return "\nNome: $this->nome \nCognome: $this->cognome \nData di nascita: $data \nSesso: $this->sesso \n$this->comune\n";
   }
   public function getCodiceIstat(){
+
     return $this->comune->Get_Codice_Istat();
 
   }
