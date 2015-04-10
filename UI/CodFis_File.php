@@ -1,6 +1,6 @@
 <?php
-require_once('Persona.class.php');
-require_once('CodiceFiscale.class.php');
+require_once('../Domain/Persona.class.php');
+require_once('../Domain/CodiceFiscale.class.php');
 $handle = fopen ("../DATA/Dati.txt","r"); //Apertura del file con gli input
 while (!feof($handle)) {
 	$buffer = trim(fgets($handle)); //Legge una riga intera da file e toglie eventuali spazi e return all'inizio e alla fine della riga
