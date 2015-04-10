@@ -1,0 +1,7 @@
+cognome:fianco
+nome:emanuele
+data:03/09/1993
+sesso:m
+provincia:ri
+comune:rieti
+residenza:rieti
