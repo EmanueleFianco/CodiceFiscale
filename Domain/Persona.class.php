@@ -121,8 +121,8 @@ class Persona {
   }
   
   public function get_Nascita() {
-    $data = $this->nascita;
-    //print $data->format('d/m/Y');
+    $data = $this->nascita->format('d/m/Y');
+    
   	return $data;
   }
     

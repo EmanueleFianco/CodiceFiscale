@@ -1,3 +1,4 @@
+
 <?php
 
 require_once('Controlli.class.php');
@@ -106,23 +107,21 @@ class CodiceFiscale {
   *
   */
 
-	static function calcolodata($data, $sesso) {
+	static function calcolodata($datas, $sesso) {
 	
-
-		if (!Controlli::formatodatavalido($data)) {
+		if (!Controlli::formatodatavalido($datas)) {
 			throw new Exception("Formato data errato, inserire gg/mm/aaaa", 4);
 
 		} elseif (!Controlli::verificasesso($sesso)) {
 			throw new Exception("Sesso errato, inserire M o F", 5);
-
 		}
- 
-		$data = DateTime::createFromFormat('d/m/Y', $data);
+	
+		$data = DateTime::createFromFormat('d/m/Y', $datas);
 		if ($data->getLastErrors()['warning_count'] > 0) {
 			throw new Exception("Data non corretta", 6);
 			
 		}
-
+		
 		$anno = $data->format('y'); //Si prendono le ultime 2 cifre dell'anno di nascita
 		$listamesi = array('1' => "A", //Si crea un array dove ci sono le corrispondenze tra mesi e lettere
 						   '2' => "B",
@@ -137,12 +136,15 @@ class CodiceFiscale {
 						   '11' => "S",
 						   '12' => "T");
 		$mese = $data->format('n');
+		
 		$mese = "$listamesi[$mese]"; //Si trasforma il mese nella lettera corrispondente
+		print "$anno";
 		if ($sesso == "F") { //Se il sesso è femminile allora si aggiunge 40 al giorno di nascita
-			$giorno = 40 + $data->format('j');
+			$giorno = 40 + $datas->format('j');
 		} else {
 			$giorno = $data->format('d');
 		}
+		
 		return trim("$anno" . "$mese" . "$giorno"); //Si restituisce il risultato nel formato previsto dal CF
 	}
 
