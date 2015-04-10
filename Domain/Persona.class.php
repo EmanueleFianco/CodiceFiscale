@@ -1,5 +1,5 @@
 <?php
-require_once('controlli.php');
+require_once('Controlli.class.php');
 require_once('Comune.class.php');
 /**
  * Person Class:
@@ -39,31 +39,33 @@ class Persona {
     if (!is_string($n) || !is_string($s) || !is_string($bd) || !is_string($cb) || !is_string($pb) || !is_string($sesso)) {
           throw new Exception("Errore nei dati", 1);
     } else {
-      if(!sololettere($n)) {
+      if(!Controlli::sololettere($n)) {
       	throw new Exception("Nome errato, inserire solo lettere dalla A alla Z",3);
       } else {
-        $this->$nome=$n;
+        $this->nome=$n;
       }
-      if(!sololettere($s)) {
+      if(!Controlli::sololettere($s)) {
         throw new Exception("Cognome errato, inserire solo lettere dalla A alla Z",2);
       } else {
         $this->cognome=$s;
       }
-      if (!formatodatavalido($bd)) {
+      if (!Controlli::formatodatavalido($bd)) {
         throw new Exception("Formato data errato, inserire gg/mm/aaaa", 4);
       } else {
-        $this->$nascita = DateTime::createFromFormat('d/m/Y', $bd);
-        if ($this->$nascita->getLastErrors()['warning_count'] > 0) {
+        $this->nascita = DateTime::createFromFormat('d/m/Y', $bd);
+        if ($this->nascita->getLastErrors()['warning_count'] > 0) {
           throw new Exception("Data non corretta", 6);
         }
       }
       //----------------------------------------
-      if (!sololettere($cb)) {
+      if (!Controlli::sololettere($cb)) {
         throw new Exception("Comune errato, inserire solo lettere dalla A alla Z", 8);
       } else {
-        $citta=$cd;
+        $citta=$cb;
       }
-      if (strlen($pb) != 2 || !sololettere($pb)) {
+
+
+      if (strlen($pb) != 2 || !Controlli::sololettere($pb)) {
         throw new Exception("La provincia è composta da solo 2 lettere dell'intervallo (A,Z)", 7);
       } else {
         $prov=$pb;
@@ -72,7 +74,7 @@ class Persona {
       $this->comune = new Comune($citta,$prov);
 
       //---------------------------------------
-      if (!verificasesso($sesso)) {
+      if (!Controlli::verificasesso($sesso)) {
         throw new Exception("Sesso errato, inserire M o F", 5);
       } else {
         $this->sesso=$sesso;
@@ -83,16 +85,16 @@ class Persona {
   
   public function set_nome($nome) {
     $nome = trim(strtoupper($nome));
-    if(!sololettere($nome)) {
+    if(!Controlli::sololettere($nome)) {
       throw new Exception("Nome errato, inserire solo lettere dalla A alla Z",3);
     } else {
-  	  $this->$nome=$nome;
+  	  $this->nome=$nome;
     }
   }
   
   public function set_cognome($cognome) {
     $cognome = trim(strtoupper($cognome));
-    if(!sololettere($cognome)) {
+    if(!Controlli::sololettere($cognome)) {
       throw new Exception("Cognome errato, inserire solo lettere dalla A alla Z",2);
     } else {
   	  $this->cognome=$cognome;
@@ -103,7 +105,7 @@ class Persona {
     if (!checkdate($month, $day, $year)) {
       throw new Exception("Data non corretta", 6);
     } else {
-      $this->$nascita->setDate($year,$month,$day);
+      $this->nascita->setDate($year,$month,$day);
     }
   }
     
@@ -111,42 +113,43 @@ class Persona {
 
   public function setsesso($sesso) {
     $sesso = trim(strtoupper($sesso));
-    if (!verificasesso($sesso)) {
+    if (!Controlli::verificasesso($sesso)) {
         throw new Exception("Sesso errato, inserire M o F", 5);
       } else {
         $this->sesso=$sesso;
       }
   }
   
-  public function get_nascita() {
-    $data = $this->$nascita->format('d/m/Y');
+  public function get_Nascita() {
+    $data = $this->nascita;
+    //print $data->format('d/m/Y');
   	return $data;
   }
     
-  public function get_nome() {
-  	return $this->$nome;
+  public function get_Nome() {
+  	return $this->nome;
   }
   
-  public function get_cognome() {
+  public function get_Cognome() {
   	return $this->cognome;
   }
     
-  public function get_comune() {
+  public function get_Comune() {
   	return $this->comune;
   }
   
-  public function getsesso() {
+  public function get_Sesso() {
     return $this->sesso;
   }
 
   public function __toString() {
-    $data = $this-$nascita->format('d/m/Y');
+    $data = $this->nascita->format('d/m/Y');
     return "\nNome: $this->$nome \nCognome: $this->cognome \nData di nascita: $data \nSesso: $this->sesso \n$this->comune\n";
   }
   public function getCodiceIstat(){
     return $this->comune->Get_Codice_Istat();
 
-  };
+  }
 
 }
 ?>

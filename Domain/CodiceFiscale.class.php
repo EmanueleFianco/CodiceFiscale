@@ -54,9 +54,9 @@ class CodiceFiscale {
 		La funzione trim() serve per eliminare eventuali caratteri speciali a inizio e fine stringa (spazio o return)*/
 
 
-		$cognome = CodiceFiscale::calcoloconsonanti($persona->getCognome(), "cognome");
-		$nome = CodiceFiscale::calcoloconsonanti($persona->getNome(),"nome");
-		$data = CodiceFiscale::calcolodata($persona->getDataNascita(),$persona->getSesso());
+		$cognome = CodiceFiscale::calcoloconsonanti($persona->get_Cognome(), "cognome");
+		$nome = CodiceFiscale::calcoloconsonanti($persona->get_Nome(),"nome");
+		$data = CodiceFiscale::calcolodata($persona->get_Nascita(),$persona->get_Sesso());
 		$comune = $persona->getCodiceIstat();
 		$controllo = CodiceFiscale::calcolocontrollo("$cognome" . "$nome" . "$data" . "$comune");
 		return trim($cognome . $nome . $data . $comune . $controllo);
@@ -107,16 +107,22 @@ class CodiceFiscale {
   */
 
 	static function calcolodata($data, $sesso) {
+	
+
 		if (!Controlli::formatodatavalido($data)) {
 			throw new Exception("Formato data errato, inserire gg/mm/aaaa", 4);
+
 		} elseif (!Controlli::verificasesso($sesso)) {
 			throw new Exception("Sesso errato, inserire M o F", 5);
+
 		}
+ 
 		$data = DateTime::createFromFormat('d/m/Y', $data);
 		if ($data->getLastErrors()['warning_count'] > 0) {
 			throw new Exception("Data non corretta", 6);
 			
 		}
+
 		$anno = $data->format('y'); //Si prendono le ultime 2 cifre dell'anno di nascita
 		$listamesi = array('1' => "A", //Si crea un array dove ci sono le corrispondenze tra mesi e lettere
 						   '2' => "B",

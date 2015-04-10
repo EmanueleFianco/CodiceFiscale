@@ -6,7 +6,7 @@ Class Comune {
  	private $codice_istat;
 
 
- 	function __construct(string $citta,string $provincia){
+ 	function __construct($citta,$provincia){
 		$handle = fopen ("../DATA/codici_comuni_italiani.txt", "r");
 	    	$trovato = FALSE;
 	    		do {
