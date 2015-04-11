@@ -1,12 +1,21 @@
 <?php
 require_once('../Domain/Persona.class.php');
 require_once('../Domain/CodiceFiscale.class.php');
-$handle = fopen ("../DATA/Dati.txt","r"); //Apertura del file con gli input
-while (!feof($handle)) {
-	$buffer = trim(fgets($handle)); //Legge una riga intera da file e toglie eventuali spazi e return all'inizio e alla fine della riga
-	list($tipo,$info) = explode(":",$buffer); //Divide la riga in 2 rispetto al separatore ":"
-	$dati[strtolower($tipo)] = trim(strtoupper($info)); //Inserisce l'informazione appena letta in un array
-}
+$handle = fopen ("php://stdin","r"); //Standard input
+print "Calcolo Codice Fiscale \n";
+print "Cognome: "; //Inizio inserimento dati
+$dati['cognome'] = fgets($handle);
+print "Nome: ";
+$dati['nome'] = fgets($handle);
+print "Data di nascita (gg/mm/aaaa): ";
+$dati['data'] = fgets($handle);
+print "Sesso (m,f): ";
+$dati['sesso'] = fgets($handle);
+print "Provincia di nascita: ";
+$dati['provincia'] = fgets($handle);
+print "Comune di nascita: ";
+$dati['comune'] = fgets($handle); //Fine inserimento dati
+
 try {
 	if (sizeof($dati) != 6 || !isset($dati['cognome']) || !isset($dati['nome']) || !isset($dati['data']) ||
 		!isset($dati['sesso']) || !isset($dati['provincia']) || !isset($dati['comune'])) {
@@ -18,7 +27,6 @@ try {
 	$codice_fiscale = new CodiceFiscale($persona);
 
 	print "$persona\n$codice_fiscale\n";
-
 
 } catch (Exception $e) {
 	print $e->getMessage() . "\n";

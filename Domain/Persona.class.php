@@ -1,5 +1,5 @@
 <?php
-require_once('Controlli.class.php');
+require_once('../DATA/Controlli.class.php');
 require_once('Comune.class.php');
 /**
  * Person Class:
@@ -38,6 +38,12 @@ class Persona {
     if (!is_string($nome) || !is_string($cognome) || !is_string($nascita) || !is_string($citta) || !is_string($provincia) || !is_string($sesso)) {
           throw new Exception("Errore nei dati", 1);
     } else {
+      $nome = trim(strtoupper($nome));
+      $cognome = trim(strtoupper($cognome));
+      $nascita = trim($nascita);
+      $citta = trim(strtoupper($citta));
+      $provincia = trim(strtoupper($provincia));
+      $sesso = trim(strtoupper($sesso));
       if(!Controlli::sololettere($nome)) {
       	throw new Exception("Nome errato, inserire solo lettere dalla A alla Z",3);
       } else {
@@ -127,10 +133,6 @@ class Persona {
   
   public function getSesso() {
     return $this->sesso;
-  }
-
-  public function getCodiceIstat(){
-    return $this->comune->GetCodiceIstat();
   }
 
   public function __toString() {

@@ -42,12 +42,20 @@ Class Comune {
 	  }
 	}
 
-	public function GetCodiceIstat(){
+	public function getCitta(){
+		return trim($this->citta);
+	}
+
+	public function getProvincia(){
+		return trim($this->provincia);
+	}
+
+	public function getCodiceIstat(){
 		return trim($this->codice_istat);
 	}
 
 	public function __toString() {
-		return "Città: $this->citta \nComune: $this->provincia";
+		return "Città: $this->citta \nProvincia: $this->provincia \nCodice Istat: $this->codice_istat";
 	}
 }
 ?>

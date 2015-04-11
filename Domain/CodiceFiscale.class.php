@@ -1,7 +1,7 @@
 
 <?php
 
-require_once('Controlli.class.php');
+require_once('../DATA/Controlli.class.php');
 require_once('Persona.class.php');
 
 /**
@@ -58,7 +58,7 @@ class CodiceFiscale {
 		$cognome = CodiceFiscale::calcoloconsonanti($persona->getCognome(), "cognome");
 		$nome = CodiceFiscale::calcoloconsonanti($persona->getNome(),"nome");
 		$data = CodiceFiscale::calcolodata($persona->getNascita(),$persona->getSesso());
-		$comune = $persona->getCodiceIstat();
+		$comune = $persona->getComune()->getCodiceIstat();
 		$controllo = CodiceFiscale::calcolocontrollo("$cognome" . "$nome" . "$data" . "$comune");
 		return trim($cognome . $nome . $data . $comune . $controllo);
 	}
