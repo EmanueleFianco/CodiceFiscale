@@ -1,6 +1,6 @@
 <?php
-require_once('Persona.class.php');
-require_once('CodiceFiscale.class.php');
+require_once('../Domain/Persona.class.php');
+require_once('../Domain/CodiceFiscale.class.php');
 $handle = fopen ("../DATA/Dati.txt","r"); //Apertura del file con gli input
 while (!feof($handle)) {
 	$buffer = trim(fgets($handle)); //Legge una riga intera da file e toglie eventuali spazi e return all'inizio e alla fine della riga
@@ -13,14 +13,11 @@ try {
 			throw new Exception("Errore nei dati", 1);
 	}
 
-/*
-Si richiama la funzione per calcolare il codice fiscale
-*/
-	$persona = new persona($dati['nome'],$dati['cognome'],$dati['data'],$dati['comune'],$dati['provincia'],$dati['sesso']); 
+	$persona = new Persona($dati['nome'],$dati['cognome'],$dati['data'],$dati['comune'],$dati['provincia'],$dati['sesso']);
     
 	$codice_fiscale = new CodiceFiscale($persona);
 
-	print "$persona"."Codice Fiscale:$codice_fiscale \n\n\n\n";
+	print "$persona\n$codice_fiscale\n";
 
 
 } catch (Exception $e) {
@@ -28,5 +25,4 @@ Si richiama la funzione per calcolare il codice fiscale
 } finally {
 	fclose($handle);
 }
-
 ?>

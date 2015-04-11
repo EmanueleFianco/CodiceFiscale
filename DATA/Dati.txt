@@ -1,6 +1,6 @@
-cognome:vitale
-nome:irene
-data:17/12/1993
-sesso:f
-provincia:fr
-comune:sora
+cognome:fianco
+nome:emanuele
+data:03/09/1993
+sesso:m
+provincia:ri
+comune:rieti
