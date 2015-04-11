@@ -60,7 +60,7 @@ class CodiceFiscale {
 		$data = CodiceFiscale::calcolodata($persona->get_Nascita(),$persona->get_Sesso());
 		$comune = $persona->getCodiceIstat();
 		$controllo = CodiceFiscale::calcolocontrollo("$cognome" . "$nome" . "$data" . "$comune");
-		var_dump($controllo);
+		
 		return trim($cognome . $nome . $data . $comune . $controllo);
 	}
 
