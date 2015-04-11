@@ -1,6 +1,7 @@
 <?php
-require_once('../DATA/Controlli.class.php');
+
 require_once('Comune.class.php');
+require_once('../DATA/Controlli.class.php');
 /**
  * Person Class:
  *
