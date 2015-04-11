@@ -60,10 +60,9 @@ class CodiceFiscale {
 		$data = CodiceFiscale::calcolodata($persona->getNascita(),$persona->getSesso());
 		$comune = $persona->getComune()->getCodiceIstat();
 		$controllo = CodiceFiscale::calcolocontrollo("$cognome" . "$nome" . "$data" . "$comune");
-<<<<<<< HEAD
+
 		
-=======
->>>>>>> 860ab8adba62b8d7d6309610874c43b89676a362
+
 		return trim($cognome . $nome . $data . $comune . $controllo);
 	}
 
