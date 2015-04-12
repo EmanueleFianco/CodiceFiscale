@@ -1,6 +1,5 @@
 
 <?php
-
 require_once('../DATA/Controlli.class.php');
 require_once('Persona.class.php');
 
@@ -55,6 +54,9 @@ class CodiceFiscale {
 		$data = CodiceFiscale::calcolodata($persona->getNascita(),$persona->getSesso());
 		$comune = $persona->getComune()->getCodiceIstat();
 		$controllo = CodiceFiscale::calcolocontrollo("$cognome" . "$nome" . "$data" . "$comune");
+
+		
+
 		return trim($cognome . $nome . $data . $comune . $controllo);
 	}
 
