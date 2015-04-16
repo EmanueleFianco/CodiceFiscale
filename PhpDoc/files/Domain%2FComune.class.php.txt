@@ -42,7 +42,7 @@ Class Comune {
 	 * 
 	 */
 
- 	private static $file = "../DATA/codici_comuni_italiani.txt";
+ 	private static $file = "DATA/codici_comuni_italiani.txt";
 
  	/**
  	 *

@@ -2,7 +2,24 @@
 require_once('Domain/Persona.class.php');
 require_once('Domain/CodiceFiscale.class.php');
 
+/**
+ * Classe ViewFile per gestire l'input da file
+ * @author Gioele Cicchini
+ * @author Emanuele Fianco
+ * @author Fabio Di Sabatino
+ * @package CodiceFiscale/UI
+ * 
+ */
+
 class ViewFile {
+
+	/**
+	 *
+	 * Questo metodo prende gli input da file
+	 * @return array $dati Contiene i dati della Persona
+	 * @throws Exception Se le informazioni contenute nel file sono errate o non rispettano la formattazione
+	 *
+	 */
 
 	static function Input() {
 		$handle = fopen ("DATA/Dati.txt","r"); //Apertura del file con gli input
@@ -23,6 +40,12 @@ class ViewFile {
 		}
 		return $dati;
 	}
+
+	/**
+	 *
+	 * Questo metodo visualizza l'output
+	 *
+	 */
 
 	static function Output(Persona $persona, CodiceFiscale $codice) {
 		print "$persona\n$codice\n\n";

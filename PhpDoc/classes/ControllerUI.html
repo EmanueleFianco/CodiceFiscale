@@ -136,10 +136,10 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-136672676"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-2098756382"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-136672676" class="accordion-body collapse in">
+            <div id="namespace-2098756382" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                     
@@ -169,8 +169,8 @@
                                             </nav>
                     <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
 
-                    <h1><small>\</small>Controlli</h1>
-                    <p><em>Libreria di controlli generali dei vari parametri passati in input dall&#039;utente</em></p>
+                    <h1><small>\</small>ControllerUI</h1>
+                    <p><em>Classe Controllore per disaccoppiare le View con il Dominio</em></p>
                     
                     
                                         
@@ -189,9 +189,9 @@
                         </section>
                         <section class="row-fluid public">
                             <section class="span4">
-                                                                    <a href="../classes/Controlli.html#method_sololettere" class="">sololettere()</a><br />
-                                                                    <a href="../classes/Controlli.html#method_formatodatavalido" class="">formatodatavalido()</a><br />
-                                                                    <a href="../classes/Controlli.html#method_verificasesso" class="">verificasesso()</a><br />
+                                                                    <a href="../classes/ControllerUI.html#method_InputForm" class="">InputForm()</a><br />
+                                                                    <a href="../classes/ControllerUI.html#method_inputFile" class="">inputFile()</a><br />
+                                                                    <a href="../classes/ControllerUI.html#method_inputShell" class="">inputShell()</a><br />
                                                             </section>
                             <section class="span4">
                                                                     <em>No public properties found</em>
@@ -229,12 +229,12 @@
                     
                     <dl>
                         <dt>File</dt>
-                            <dd><a href="../files/DATA.Controlli.class.html"><div class="path-wrapper">DATA/Controlli.class.php</div></a></dd>
+                            <dd><a href="../files/Controller.ControllerUI.class.html"><div class="path-wrapper">Controller/ControllerUI.class.php</div></a></dd>
                                                 <dt>Package</dt>
-                            <dd><div class="namespace-wrapper">CodiceFiscale/DATA</div></dd>
+                            <dd><div class="namespace-wrapper">CodiceFiscale/Controller</div></dd>
                                                 <dt>Class hierarchy</dt>
                             <dd class="hierarchy">
-                                                                                                                                                                    <div class="namespace-wrapper">\Controlli</div>
+                                                                                                                                                                    <div class="namespace-wrapper">\ControllerUI</div>
                             </dd>
 
                         
@@ -249,9 +249,9 @@
                                 author
                             </th>
                             <td>
+                                                                    <p>Gioele Cicchini</p>
                                                                     <p>Emanuele Fianco</p>
                                                                     <p>Fabio Di Sabatino</p>
-                                                                    <p>Gioele Cicchini</p>
                                                             </td>
                         </tr>
                                         </table>
@@ -268,28 +268,17 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_sololettere" name="method_sololettere" class="anchor"></a>
+            <a id="method_InputForm" name="method_InputForm" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">sololettere()</h3>
+                <h3 class="public ">InputForm()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">sololettere(string  <span class="argument">$stringa</span>) : boolean</pre>
-                <p><em>Controlla se la stringa passata per parametro è composta da sole lettere maiuscole, spazi e apostrofi.</em></p>
+                <pre class="signature" style="margin-right: 54px;">InputForm() </pre>
+                <p><em>Questo metodo permette di inserire gli input via form e si interfaccia con Domain</em></p>
                 
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>string</td>
-                                <td>$stringa </td>
-                                <td><p>Stringa da controllare</p></td>
-                            </tr>
-                                            </table>
                 
                 
-                                    <h4>Returns</h4>
-                    boolean
-                                            &mdash; <p>TRUE se $stringa rispetta le condizioni</p>
-                                    				
+                				
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -306,28 +295,17 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_formatodatavalido" name="method_formatodatavalido" class="anchor"></a>
+            <a id="method_inputFile" name="method_inputFile" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">formatodatavalido()</h3>
+                <h3 class="public ">inputFile()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">formatodatavalido(string  <span class="argument">$data</span>) : boolean</pre>
-                <p><em>Controlla se la stringa $data passata per parametro è scritta nel formato &quot;gg/mm/aaaa&quot;.</em></p>
+                <pre class="signature" style="margin-right: 54px;">inputFile() </pre>
+                <p><em>Questo metodo permette di inserire gli input via file e si interfaccia con Domain</em></p>
                 
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>string</td>
-                                <td>$data </td>
-                                <td><p>Stringa da controllare</p></td>
-                            </tr>
-                                            </table>
                 
                 
-                                    <h4>Returns</h4>
-                    boolean
-                                            &mdash; <p>TRUE se $data rispetta le condizioni</p>
-                                    				
+                				
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -344,28 +322,17 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_verificasesso" name="method_verificasesso" class="anchor"></a>
+            <a id="method_inputShell" name="method_inputShell" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">verificasesso()</h3>
+                <h3 class="public ">inputShell()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">verificasesso(string  <span class="argument">$sesso</span>) : boolean</pre>
-                <p><em>Controlla se la stringa $sesso passata per parametro è &quot;M&quot; o &quot;F&quot;</em></p>
+                <pre class="signature" style="margin-right: 54px;">inputShell() </pre>
+                <p><em>Questo metodo permette di inserire gli input via shell e si interfaccia con Domain</em></p>
                 
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>string</td>
-                                <td>$sesso </td>
-                                <td><p>Stringa da controllare</p></td>
-                            </tr>
-                                            </table>
                 
                 
-                                    <h4>Returns</h4>
-                    boolean
-                                            &mdash; <p>TRUE se $sesso rispetta le condizioni</p>
-                                    				
+                				
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -386,10 +353,10 @@
     <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="source-view-label">Controlli.class.php</h3>
+            <h3 id="source-view-label">ControllerUI.class.php</h3>
         </div>
         <div class="modal-body">
-            <pre data-src="../files/DATA/Controlli.class.php.txt" class="language-php line-numbers"></pre>
+            <pre data-src="../files/Controller/ControllerUI.class.php.txt" class="language-php line-numbers"></pre>
         </div>
     </div>
 
