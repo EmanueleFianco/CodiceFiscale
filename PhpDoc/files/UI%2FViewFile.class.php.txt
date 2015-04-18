@@ -16,13 +16,14 @@ class ViewFile {
 	/**
 	 *
 	 * Questo metodo prende gli input da file
+	 * @param string $file Stringa contenente il path del file
 	 * @return array $dati Contiene i dati della Persona
 	 * @throws Exception Se le informazioni contenute nel file sono errate o non rispettano la formattazione
 	 *
 	 */
 
-	static function Input() {
-		$handle = fopen ("DATA/Dati.txt","r"); //Apertura del file con gli input
+	static function Input($file) {
+		$handle = fopen ("$file","r"); //Apertura del file con gli input
 		while (!feof($handle)) {
 			$buffer = trim(fgets($handle)); //Legge una riga intera da file e toglie eventuali spazi e return all'inizio e alla fine della riga
 			list($tipo,$info) = explode(":",$buffer); //Divide la riga in 2 rispetto al separatore ":"

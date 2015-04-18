@@ -1,6 +1,6 @@
 
 <?php
-require_once('DATA/Controlli.class.php');
+require_once('Domain/Utility/Controlli.class.php');
 require_once('Persona.class.php');
 
 /**

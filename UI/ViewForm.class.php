@@ -36,9 +36,9 @@ class ViewForm {
 								</tr>
 								<tr>
 										<td>Data dd/mm/yy</td>
-										<td><input type=".'text'." name=".'data'."><br></td>
+										<td><input type=".'text'." name=".'data'." size=10 maxlength=10><br></td>
 								</tr>
-								<tr  >
+								<tr>
 									<td>
 										Sesso
 									</td>
@@ -49,7 +49,7 @@ class ViewForm {
 								</tr>
 								<tr>
 										<td>Provincia</td>
-										<td><input type=".'text'." name=".'provincia'."><br></td>
+										<td><input type=".'text'." name=".'provincia'." size=2 maxlength=2><br></td>
 								</tr>
 								<tr>
 										<td>Comune</td>
@@ -57,13 +57,13 @@ class ViewForm {
 								</tr>
 
 								<tr>
-								<td>Aggiunta file <br> prioritario rispetto  <br> a form </td>
-								<td><input type=".'file'." name=".'file'."></td>
+									<td>Aggiunta file <br> prioritario rispetto  <br> a form </td>
+									<td><input type=".'file'." name=".'file'."></td>
 								</tr>
 
 
 							 	<tr>
-							 	<td align =center><input type=".'submit'."></td>
+							 		<td align =center><input type=".'submit'."></td>
 							 	</tr>
 
 

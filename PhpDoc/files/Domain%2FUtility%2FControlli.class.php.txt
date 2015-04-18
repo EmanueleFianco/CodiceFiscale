@@ -6,7 +6,7 @@
  * @author Emanuele Fianco
  * @author Fabio Di Sabatino
  * @author Gioele Cicchini
- * @package CodiceFiscale/DATA
+ * @package CodiceFiscale/Domain/Utility
  * 
  */
 
