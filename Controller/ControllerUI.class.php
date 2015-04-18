@@ -23,6 +23,28 @@ Class ControllerUI {
 	*/
 
 	static function InputForm() {
+		
+
+		if(!empty($_FILES)){
+			if($_FILES['file']['type']=='text/plain'){
+				$originale = $_FILES['file']['tmp_name'];
+				$copia = "DATA/".$_FILES['file']['name'];
+				unlink('DATA/Dati.txt');
+				move_uploaded_file($originale,$copia);
+				rename($copia,'DATA/Dati.txt');
+				$dati=ViewFile::input();
+				$persona = new Persona($dati['nome'],$dati['cognome'],$dati['data'],$dati['comune'],$dati['provincia'],$dati['sesso']);
+				$codice = new CodiceFiscale($persona);
+				ViewForm::Output($persona,$codice);
+			}
+			else{
+				print "Errore nei dati";  // da gestire l'errore
+			}
+
+		}
+
+		else{
+
 		try {
 			if (!empty($_POST)) {
 				if (!isset($_POST['cognome']) || !isset($_POST['nome']) || !isset($_POST['data']) ||
@@ -45,6 +67,8 @@ Class ControllerUI {
 			ViewForm::Errore($e);
 			ViewForm::Input();
 		}
+
+			}
 	}
 
 	/**

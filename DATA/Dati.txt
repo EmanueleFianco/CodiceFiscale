@@ -1,6 +1,6 @@
-cognome:fianco
-nome:emanuele
-data:03/09/1993
-sesso:m
-provincia:ri
-comune:rieti
+cognome:cicchini
+nome:febe
+data:13/01/1998
+sesso:f
+provincia:ch
+comune:vasto

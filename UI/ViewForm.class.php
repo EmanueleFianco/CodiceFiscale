@@ -24,8 +24,8 @@ class ViewForm {
 					<body bgcolor=".'0099FF'.">
 
 						<h3 align=center >Calcolo Codice Fiscale</h5>
-						<form method=".'post'.">
-							<table border=".'1'.">
+						<form method=".'post'." enctype = ".'multipart/form-data'.">
+							<table >
 								<tr>
 										<td>Nome</td>
 										<td><input type=".'text'." name=".'nome'."><br></td>
@@ -56,9 +56,17 @@ class ViewForm {
 										<td><input type=".'text'." name=".'comune'."><br></td>
 								</tr>
 
+								<tr>
+								<td>Aggiunta file <br> prioritario rispetto  <br> a form </td>
+								<td><input type=".'file'." name=".'file'."></td>
+								</tr>
+
+
 							 	<tr>
 							 	<td align =center><input type=".'submit'."></td>
 							 	</tr>
+
+
 							 
 							</table>
 						</form>
