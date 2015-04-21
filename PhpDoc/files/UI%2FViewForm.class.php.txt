@@ -24,7 +24,7 @@ class ViewForm {
 					<body bgcolor=".'0099FF'.">
 
 						<h3 align=center >Calcolo Codice Fiscale</h5>
-						<form method=".'post'." enctype = ".'multipart/form-data'.">
+						<form action=".'elabora_input_form.php'." method=".'post'." enctype = ".'multipart/form-data'.">
 							<table >
 								<tr>
 										<td>Nome</td>

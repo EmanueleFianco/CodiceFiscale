@@ -36,7 +36,6 @@ class ViewShell {
 		$dati['provincia'] = fgets($handle);
 		print "Comune di nascita: ";
 		$dati['comune'] = fgets($handle); //Fine inserimento dati
-
 		try {
 			if (sizeof($dati) != 6 || !isset($dati['cognome']) || !isset($dati['nome']) || !isset($dati['data']) ||
 				!isset($dati['sesso']) || !isset($dati['provincia']) || !isset($dati['comune'])) {
