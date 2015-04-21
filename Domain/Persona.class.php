@@ -106,7 +106,7 @@ class Persona {
       } elseif (strlen($provincia) != 2 || !Controlli::sololettere($provincia)) {
         throw new Exception("La provincia è composta da solo 2 lettere dell'intervallo (A,Z)", 7);
       }
-      $this->comune =& new Comune($citta,$provincia);
+      $this->comune = new Comune($citta,$provincia);
       if (!Controlli::verificasesso($sesso)) {
         throw new Exception("Sesso errato, inserire M o F", 5);
       } else {
