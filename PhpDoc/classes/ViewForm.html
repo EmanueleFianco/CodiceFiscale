@@ -106,12 +106,12 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="../reports/errors.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">45</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">54</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="../reports/markers.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
                                 </a>
                             </li>
                             <li>
@@ -136,10 +136,10 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-753743831"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-152919629"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-753743831" class="accordion-body collapse in">
+            <div id="namespace-152919629" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                     
@@ -170,7 +170,7 @@
                     <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
 
                     <h1><small>\</small>ViewForm</h1>
-                    <p><em>Classe ViewForm per gestire l&#039;input da form</em></p>
+                    <p><em>Classe ViewForm per gestire l&#039;input da form. Estende Smarty.</em></p>
                     
                     
                                         
@@ -189,9 +189,9 @@
                         </section>
                         <section class="row-fluid public">
                             <section class="span4">
-                                                                    <a href="../classes/ViewForm.html#method_Input" class="">Input()</a><br />
-                                                                    <a href="../classes/ViewForm.html#method_Output" class="">Output()</a><br />
-                                                                    <a href="../classes/ViewForm.html#method_Errore" class="">Errore()</a><br />
+                                                                    <a href="../classes/ViewForm.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/ViewForm.html#method_setTemplate" class="">setTemplate()</a><br />
+                                                                    <a href="../classes/ViewForm.html#method_setDataIntoTemplate" class="">setDataIntoTemplate()</a><br />
                                                             </section>
                             <section class="span4">
                                                                     <em>No public properties found</em>
@@ -234,7 +234,9 @@
                             <dd><div class="namespace-wrapper">CodiceFiscale/UI</div></dd>
                                                 <dt>Class hierarchy</dt>
                             <dd class="hierarchy">
-                                                                                                                                                                    <div class="namespace-wrapper">\ViewForm</div>
+                                                                                                                                                                                                                                                                                                
+                                        <div class="namespace-wrapper">\Smarty</div>
+                                                                                                    <div class="namespace-wrapper">\ViewForm</div>
                             </dd>
 
                         
@@ -252,6 +254,7 @@
                                                                     <p>Gioele Cicchini</p>
                                                                     <p>Emanuele Fianco</p>
                                                                     <p>Fabio Di Sabatino</p>
+                                                                    <p>Federica Caruso</p>
                                                             </td>
                         </tr>
                                         </table>
@@ -268,12 +271,12 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_Input" name="method_Input" class="anchor"></a>
+            <a id="method___construct" name="method___construct" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">Input()</h3>
+                <h3 class="public ">__construct()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">Input() </pre>
-                <p><em>Questo metodo prende gli input da form</em></p>
+                <pre class="signature" style="margin-right: 54px;">__construct() </pre>
+                <p><em>Costruttore di ViewForm che setta semplicemente le cartelle di lavoro di Smarty</em></p>
                 
 
                 
@@ -283,7 +286,6 @@
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
-                            <span class="label label-info">static</span>
                                                             <dl>
                                                                             </dl>
             <h2>Tags</h2>
@@ -295,25 +297,20 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_Output" name="method_Output" class="anchor"></a>
+            <a id="method_setTemplate" name="method_setTemplate" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">Output()</h3>
+                <h3 class="public ">setTemplate()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">Output(\Persona  <span class="argument">$persona</span>, \CodiceFiscale  <span class="argument">$codice</span>) </pre>
-                <p><em>Questo metodo visualizza gli output su browser</em></p>
+                <pre class="signature" style="margin-right: 54px;">setTemplate(string  <span class="argument">$template</span>) </pre>
+                <p><em>Metodo che richiama il metodo display di Smarty</em></p>
                 
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
                                                     <tr>
-                                <td><a href="../classes/Persona.html">\Persona</a></td>
-                                <td>$persona </td>
-                                <td></td>
-                            </tr>
-                                                    <tr>
-                                <td><a href="../classes/CodiceFiscale.html">\CodiceFiscale</a></td>
-                                <td>$codice </td>
-                                <td></td>
+                                <td>string</td>
+                                <td>$template </td>
+                                <td><p>Stringa contenente il nome del template da utilizzare</p></td>
                             </tr>
                                             </table>
                 
@@ -323,7 +320,6 @@
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
-                            <span class="label label-info">static</span>
                                                             <dl>
                                                                             </dl>
             <h2>Tags</h2>
@@ -335,20 +331,25 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_Errore" name="method_Errore" class="anchor"></a>
+            <a id="method_setDataIntoTemplate" name="method_setDataIntoTemplate" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">Errore()</h3>
+                <h3 class="public ">setDataIntoTemplate()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">Errore(\Exception  <span class="argument">$e</span>) </pre>
-                <p><em>Questo metodo visualizza il messaggio di errore su browser in caso ci sia stato</em></p>
+                <pre class="signature" style="margin-right: 54px;">setDataIntoTemplate(string  <span class="argument">$reference</span>, \Persona|\CodiceFiscale  <span class="argument">$data</span>) </pre>
+                <p><em>Metodo che richiama il metodo assign di Smarty</em></p>
                 
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
                                                     <tr>
-                                <td>\Exception</td>
-                                <td>$e </td>
-                                <td></td>
+                                <td>string</td>
+                                <td>$reference </td>
+                                <td><p>Stringa che individua il segnaposto utilizzato nel template</p></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/Persona.html">\Persona</a>|<a href="../classes/CodiceFiscale.html">\CodiceFiscale</a></td>
+                                <td>$data </td>
+                                <td><p>Oggetto associato al segnaposto nel template</p></td>
                             </tr>
                                             </table>
                 
@@ -358,7 +359,6 @@
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
-                            <span class="label label-info">static</span>
                                                             <dl>
                                                                             </dl>
             <h2>Tags</h2>
@@ -417,7 +417,7 @@
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on April 21st, 2015 at 22:37.
+                    on April 22nd, 2015 at 20:34.
                 </section>
             </section>
         </section>

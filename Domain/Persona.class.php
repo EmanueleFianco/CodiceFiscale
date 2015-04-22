@@ -8,6 +8,7 @@ require_once('Domain//Utility/Controlli.class.php');
  * @author Emanuele Fianco
  * @author Fabio Di Sabatino
  * @author Gioele Cicchini
+ * @author Federica Caruso
  * @package CodiceFiscale/Domain
  * 
  */

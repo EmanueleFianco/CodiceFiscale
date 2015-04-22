@@ -7,6 +7,7 @@ require_once('Domain/CodiceFiscale.class.php');
  * @author Gioele Cicchini
  * @author Emanuele Fianco
  * @author Fabio Di Sabatino
+ * @author Federica Caruso
  * @package CodiceFiscale/UI
  * 
  */
@@ -23,23 +24,29 @@ class ViewFile {
 	 */
 
 	static function Input($file) {
-		$handle = fopen ("$file","r"); //Apertura del file con gli input
-		while (!feof($handle)) {
-			$buffer = trim(fgets($handle)); //Legge una riga intera da file e toglie eventuali spazi e return all'inizio e alla fine della riga
-			list($tipo,$info) = explode(":",$buffer); //Divide la riga in 2 rispetto al separatore ":"
-			$dati[strtolower($tipo)] = trim(strtoupper($info)); //Inserisce l'informazione appena letta in un array
-		}
 		try {
-			if (sizeof($dati) != 6 || !isset($dati['cognome']) || !isset($dati['nome']) || !isset($dati['data']) ||
-				!isset($dati['sesso']) || !isset($dati['provincia']) || !isset($dati['comune'])) {
-				throw new Exception("Errore nei dati", 1);
+			if (!file_exists("$file")) {
+				throw new Exception("File non esistente, controllare il path inserito in configInput.inc.php");
+			} else {
+				$handle = fopen ("$file","r"); //Apertura del file con gli input
+				while (!feof($handle)) {
+					$buffer = trim(fgets($handle)); //Legge una riga intera da file e toglie eventuali spazi e return all'inizio e alla fine della riga
+					list($tipo,$info) = explode(":",$buffer); //Divide la riga in 2 rispetto al separatore ":"
+					$dati[strtolower($tipo)] = trim(strtoupper($info)); //Inserisce l'informazione appena letta in un array
+				}
+				if (sizeof($dati) != 6 || !isset($dati['cognome']) || !isset($dati['nome']) || !isset($dati['data']) ||
+					!isset($dati['sesso']) || !isset($dati['provincia']) || !isset($dati['comune'])) {
+					throw new Exception("Errore nei dati", 1);
+				}
 			}
 		} catch (Exception $e) {
 			print $e->getMessage() . "\n";
 		} finally {
-			fclose($handle);
+			if (isset($handle)) {
+				fclose($handle);
+				return $dati;
+			}
 		}
-		return $dati;
 	}
 
 	/**

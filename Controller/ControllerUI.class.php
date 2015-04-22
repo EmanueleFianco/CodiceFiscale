@@ -6,10 +6,11 @@ require_once('UI/ViewFile.class.php');
 require_once('UI/ViewShell.class.php');
 
 /**
- * Classe Controllore per disaccoppiare le View con il Dominio
+ * Classe Controllore per disaccoppiare le View con il Dominio.
  * @author Gioele Cicchini
  * @author Emanuele Fianco
  * @author Fabio Di Sabatino
+ * @author Federica Caruso
  * @package CodiceFiscale/Controller
  * 
  */
@@ -19,26 +20,24 @@ Class ControllerUI {
 	/**
 	 *
 	 * Questo metodo richiama la view per input via form o file(caricato sempre da form)
-	 * @uses ViewForm::Input() Rechiama l'interfaccia per l'input da form
 	 *
 	*/
 
 	static function InputForm() {
-		ViewForm::Input();
+		$view = new ViewForm();
+		$view->setTemplate('InputForm.tpl');
 	}
 
 	/**
 	 *
 	 * Metodo richiamato quando viene premuto il tasto submit sulla form
-	 * @uses ViewForm::Input() Per richiamare la schermata di input da form
-	 * @uses ViewForm::Output() Per richiamare la schermata di output
-	 * @uses ViewForm::Errore() Html relativo alla stampa del messaggio d'errore
 	 * @throws Exception Se i campi della form non sono inseriti correttamente o se ne sono lasciati alcuni vuoti. Se il mime-type del file caricato è diverso da text/plain
 	 *
 	 */
 
 	static function ElaboraForm() {
 		try {
+			$view = new ViewForm();
 			if($_FILES['file']['size'] != 0) {
 				if($_FILES['file']['type'] != 'text/plain') {
 					throw new Exception("Si accettano solamente file contenente text/plain");
@@ -47,7 +46,9 @@ Class ControllerUI {
 					$dati = ViewFile::Input($originale);
 					$persona = new Persona($dati['nome'],$dati['cognome'],$dati['data'],$dati['comune'],$dati['provincia'],$dati['sesso']);
 					$codice = new CodiceFiscale($persona);
-					ViewForm::Output($persona,$codice);
+					$view->setDataIntoTemplate('persona',$persona);
+					$view->setDataIntoTemplate('codice',$codice);
+					$view->setTemplate('OutputForm.tpl');
 				}
 			} elseif ($_POST['cognome'] && $_POST['nome'] && $_POST['data'] && $_POST['sesso'] && $_POST['provincia'] && $_POST['comune']) {
 				$nome=$_POST["nome"];
@@ -58,13 +59,15 @@ Class ControllerUI {
 				$comune=$_POST["comune"];
 				$persona = new Persona($nome,$cognome,$data,$comune,$provincia,$sesso);
 				$codice = new CodiceFiscale($persona);
-				ViewForm::Output($persona,$codice);
+				$view->setDataIntoTemplate('persona',$persona);
+				$view->setDataIntoTemplate('codice',$codice);
+				$view->setTemplate('OutputForm.tpl');
 			} else {
 				throw new Exception("Inserire correttamente tutti i campi richiesti");
 			}
 		} catch (Exception $e) {
-			ViewForm::Errore($e);
-			ViewForm::Input();
+			$view->setDataIntoTemplate('e',$e);
+			$view->setTemplate('ErroreForm.tpl');
 		}
 	}
 
@@ -77,10 +80,10 @@ Class ControllerUI {
 	 *
 	*/
 
-
 	static function InputFile() {
+		include 'Utility/configInput.inc.php';
 		try {
-			$dati = ViewFile::Input("DATA/Dati.txt");
+			$dati = ViewFile::Input($config['file']);
 			$persona = new Persona($dati['nome'],$dati['cognome'],$dati['data'],$dati['comune'],$dati['provincia'],$dati['sesso']);
 			$codice = new CodiceFiscale($persona);
 			ViewFile::Output($persona,$codice);
@@ -97,7 +100,6 @@ Class ControllerUI {
 	 * @throws Exception Se i dati di input non sono conformi alle regole richieste
 	 *
 	*/
-
 
 	static function InputShell() {
 		try {

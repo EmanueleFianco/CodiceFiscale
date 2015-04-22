@@ -9,6 +9,7 @@ require_once('Persona.class.php');
  * @author Gioele Cicchini
  * @author Emanuele Fianco
  * @author Fabio Di Sabatino
+ * @author Federica Caruso
  * @package CodiceFiscale/Domain
  * 
  */
