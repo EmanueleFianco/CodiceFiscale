@@ -31,7 +31,7 @@ Class ControllerUI {
 	/**
 	 *
 	 * Metodo richiamato quando viene premuto il tasto submit sulla form
-	 * @throws Exception Se i campi della form non sono inseriti correttamente o se ne sono lasciati alcuni vuoti. Se il mime-type del file caricato è diverso da text/plain
+	 * @throws Exception Se i campi della form non sono inseriti correttamente o se ne sono lasciati alcuni vuoti. Se il mime-type del file caricato è diverso da text/plain. Se si utilizza db per i codici del catasto potrebbe non riuscire la connessione al db e quindi lanciare un'eccezione.
 	 *
 	 */
 
@@ -66,6 +66,9 @@ Class ControllerUI {
 				throw new Exception("Inserire correttamente tutti i campi richiesti");
 			}
 		} catch (Exception $e) {
+			if ($e->getCode() == 2002) {
+				$e = new Exception("Connessione al db non riuscita");
+			}
 			$view->setDataIntoTemplate('e',$e);
 			$view->setTemplate('ErroreForm.tpl');
 		}
@@ -76,7 +79,7 @@ Class ControllerUI {
 	 * Questo metodo permette di inserire gli input via file e si interfaccia con Domain
 	 * @uses ViewFile::Input() Prende gli input da file
 	 * @uses ViewFile::Output() Richiama l'output da shell
-	 * @throws Exception Se il file di input non contiene tutte le informazioni necessarie oppure è formattato in maniera non conforme alle specifiche richieste
+	 * @throws Exception Se il file di input non contiene tutte le informazioni necessarie oppure è formattato in maniera non conforme alle specifiche richieste. Se si utilizza db per i codici del catasto potrebbe non riuscire la connessione al db e quindi lanciare un'eccezione.
 	 *
 	*/
 
@@ -88,6 +91,9 @@ Class ControllerUI {
 			$codice = new CodiceFiscale($persona);
 			ViewFile::Output($persona,$codice);
 		} catch (Exception $e) {
+			if ($e->getCode() == 2002) {
+				$e = new Exception("Connessione al db non riuscita");
+			}
 			print $e->getMessage() . "\n";
 		}
 	}	
@@ -97,7 +103,7 @@ Class ControllerUI {
 	 * Questo metodo permette di inserire gli input via shell e si interfaccia con Domain
 	 * @uses ViewShell::Input() Prende gli input da file
 	 * @uses ViewFile::Output() Richiama l'output da shell
-	 * @throws Exception Se i dati di input non sono conformi alle regole richieste
+	 * @throws Exception Se i dati di input non sono conformi alle regole richieste. Se si utilizza db per i codici del catasto potrebbe non riuscire la connessione al db e quindi lanciare un'eccezione.
 	 *
 	*/
 
@@ -108,6 +114,9 @@ Class ControllerUI {
 			$codice = new CodiceFiscale($persona);
 			ViewShell::Output($persona,$codice);
 		} catch (Exception $e) {
+			if ($e->getCode() == 2002) {
+				$e = new Exception("Connessione al db non riuscita");
+			}
 			print $e->getMessage() . "\n";
 		}
 	}

@@ -24,11 +24,7 @@ class Persistenza {
 	static function getCodiceCatasto($provincia,$comune) {
 		require('config.inc.php');
 		$col = "$dbms:host=".$config[$dbms]['host'].";dbname=".$config[$dbms]['database'];
-		try {
-			$db = new PDO($col, $config[$dbms]['user'], $config[$dbms]['password']);
-		} catch (PDOException $e) {
-			//Da vedere bene
-		}
+		$db = new PDO($col, $config[$dbms]['user'], $config[$dbms]['password']);
 		$sql = "SELECT codice FROM codici WHERE provincia = '$provincia' and comune = '$comune'";
 		foreach ($db->query($sql) as $row) {
 			$risultato = $row['codice'];
