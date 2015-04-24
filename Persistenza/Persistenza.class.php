@@ -26,9 +26,9 @@ class Persistenza {
 		$col = "$dbms:host=".$config[$dbms]['host'].";dbname=".$config[$dbms]['database'];
 		$db = new PDO($col, $config[$dbms]['user'], $config[$dbms]['password']);
 		$sql = "SELECT codice FROM codici WHERE provincia = '$provincia' and comune = '$comune'";
-		foreach ($db->query($sql) as $row) {
-			$risultato = $row['codice'];
-		}
+		$interrogazione = $db->prepare($sql);
+		$interrogazione->execute();
+		$risultato = $interrogazione->fetchColumn();
 		unset($db);
 		if (isset($risultato)) {
 			return $risultato;
