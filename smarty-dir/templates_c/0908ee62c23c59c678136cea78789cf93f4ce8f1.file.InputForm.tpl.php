@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-04-22 18:20:58
+<?php /* Smarty version Smarty-3.1.13, created on 2015-04-24 23:55:23
          compiled from "smarty-dir/templates/InputForm.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:17391549195537ca6a422559-94260037%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0908ee62c23c59c678136cea78789cf93f4ce8f1' => 
     array (
       0 => 'smarty-dir/templates/InputForm.tpl',
-      1 => 1429719529,
+      1 => 1429912513,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.13',
   'unifunc' => 'content_5537ca6a483863_30227987',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5537ca6a483863_30227987')) {function content_5537ca6a483863_30227987($_smarty_tpl) {?><html>
 	<body bgcolor="0099FF">
@@ -56,7 +56,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<td><input type="file" name="file"></td>
 				</tr>
 			 	<tr>
-					<td align =center><input type="submit"></td>
+					<td align =center><input type="submit" value="Invia richiesta"></td>
 				</tr>
 			</table>
 		</form>

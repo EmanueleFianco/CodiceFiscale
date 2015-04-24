@@ -35,7 +35,7 @@
 					<td><input type="file" name="file"></td>
 				</tr>
 			 	<tr>
-					<td align =center><input type="submit"></td>
+					<td align =center><input type="submit" value="Invia richiesta"></td>
 				</tr>
 			</table>
 		</form>
