@@ -105,7 +105,7 @@ Class ControllerUI {
 	 * @uses ViewFile::Output() Richiama l'output da shell
 	 * @throws Exception Se i dati di input non sono conformi alle regole richieste. Se si utilizza db per i codici del catasto potrebbe non riuscire la connessione al db e quindi lanciare un'eccezione.
 	 *
-	*/
+	 */
 
 	static function InputShell() {
 		try {
@@ -120,5 +120,17 @@ Class ControllerUI {
 			print $e->getMessage() . "\n";
 		}
 	}
+
+	/**
+	 *
+	 * Questo metodo mostra un esempio di file valido mostrando il template ExampleFile.tpl
+	 *
+	 */
+      
+    static function ExampleFile() {
+        $view = new ViewForm();
+        $view->setTemplate('ExampleFile.tpl');
+    }
+
 }
 ?>
