@@ -120,11 +120,5 @@ Class ControllerUI {
 			print $e->getMessage() . "\n";
 		}
 	}
-      
-      static function ExampleFile() {
-        $view= new ViewForm();
-        $view->setTemplate('ExampleFile.tpl');
-      }
-
 }
 ?>

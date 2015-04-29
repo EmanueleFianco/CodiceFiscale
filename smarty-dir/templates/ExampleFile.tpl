@@ -1,0 +1,35 @@
+<html>	
+<body bgcolor="#F5F5DC">
+		<h3 align=center>Esempio file valido</h3>
+		
+			<table >
+				<tr>
+					<td>Nome:</td>
+					<td>paolo<br></td>
+				</tr>
+				<tr>
+					<td>Cognome:</td>
+					<td>rossi<br></td>
+				</tr>
+				<tr>
+					<td>Data:</td>
+					<td>31/12/1950<br></td>
+				</tr>
+				<tr>
+					<td>Sesso:</td>
+					<td>m<br></td>
+				</tr>
+				<tr>
+					<td>Provincia:</td>
+					<td>rm<br></td>
+				</tr>
+				<tr>
+					<td>Comune:</td>
+					<td>roma<br></td>
+				</tr>
+                                		
+			 	
+			 </table>
+		
+	</body>
+</html> 
