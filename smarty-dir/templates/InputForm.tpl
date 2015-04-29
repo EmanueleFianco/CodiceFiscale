@@ -12,7 +12,7 @@
 					<td><input type="text" name="cognome"><br></td>
 				</tr>
 				<tr>
-					<td>Data dd/mm/yy</td>
+					<td>Data dd/mm/yyyy</td>
 					<td><input type="text" name="data" size=10 maxlength=10><br></td>
 				</tr>
 				<tr>
