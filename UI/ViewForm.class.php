@@ -35,7 +35,9 @@ class ViewForm extends Smarty {
 	 */
 
 	public function setTemplate($template) {
-	$this->display($template);
+    
+
+    	$this->display($template);
     }
 
     /**

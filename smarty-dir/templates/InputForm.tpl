@@ -34,10 +34,11 @@
 					<td>Aggiunta file <br> prioritario rispetto  <br> a form </td>
 					<td><input type="file" name="file"></td>
                     <td><a target="_blank" href="file_esempio.php">Esempio file utile..</a></td>
-				</tr>              
+				</tr> 				           
 			 	<tr>
 					<td align =center><input type="submit" value="Invia richiesta"></td>
 				</tr>
+				
 			</table>
 		</form>
 	</body>

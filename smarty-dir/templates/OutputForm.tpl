@@ -30,6 +30,7 @@
 				<td>Codice Fiscale &nbsp</td>
 				<td> {$codice->getCodice()} <br></td>
 			</tr>
+			
 		</table>
 	</body>
 </html>

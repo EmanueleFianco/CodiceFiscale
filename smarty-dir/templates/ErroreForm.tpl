@@ -35,6 +35,7 @@
 					<td>Aggiunta file <br> prioritario rispetto  <br> a form </td>
 					<td><input type="file" name="file"></td>
 				</tr>
+				 
 			 	<tr>
 					<td align =center><input type="submit"></td>
 				</tr>

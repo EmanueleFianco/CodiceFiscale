@@ -75,7 +75,7 @@ class Persona {
  
   public function __construct($nome,$cognome,$nascita,$citta,$provincia,$sesso) {
 
-    if (!is_string($nome) || !is_string($cognome) || !is_string($nascita) || !is_string($citta) || !is_string($provincia) || !is_string($sesso)) {
+    if (!is_string($nome) || !is_string($cognome) || !is_string($citta) || !is_string($provincia) || !is_string($sesso)) {
           throw new Exception("Errore nei dati", 1);
     } else {
       $nome = trim(strtoupper($nome));
@@ -230,6 +230,16 @@ class Persona {
   
   public function getSesso() {
     return $this->sesso;
+  }
+
+  public function getCitta()
+  {
+    return $this->comune->getCitta();
+  }
+
+  public function getProvincia()
+  {
+     return $this->comune->getProvincia();
   }
 
   /**

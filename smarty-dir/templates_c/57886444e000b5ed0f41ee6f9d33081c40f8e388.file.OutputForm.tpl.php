@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-04-29 22:38:19
+<?php /* Smarty version Smarty-3.1.13, created on 2015-05-17 16:30:08
          compiled from "smarty-dir/templates/OutputForm.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:11507419865541413b9dc811-57929277%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '57886444e000b5ed0f41ee6f9d33081c40f8e388' => 
     array (
       0 => 'smarty-dir/templates/OutputForm.tpl',
-      1 => 1430339443,
+      1 => 1431872817,
       2 => 'file',
     ),
   ),
@@ -15,14 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.13',
+  'unifunc' => 'content_5541413ba4ad69_05336762',
   'variables' => 
   array (
     'persona' => 0,
     'codice' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_5541413ba4ad69_05336762',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5541413ba4ad69_05336762')) {function content_5541413ba4ad69_05336762($_smarty_tpl) {?><html>
 	<body bgcolor="0099FF">
@@ -63,6 +63,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				<td> <?php echo $_smarty_tpl->tpl_vars['codice']->value->getCodice();?>
  <br></td>
 			</tr>
+			
 		</table>
 	</body>
 </html><?php }} ?>

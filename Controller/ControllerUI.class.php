@@ -4,6 +4,7 @@ require_once('Domain/CodiceFiscale.class.php');
 require_once('UI/ViewForm.class.php');
 require_once('UI/ViewFile.class.php');
 require_once('UI/ViewShell.class.php');
+require_once('Controller/ControllerSession.class.php');
 
 /**
  * Classe Controllore per disaccoppiare le View con il Dominio.
@@ -23,9 +24,17 @@ Class ControllerUI {
 	 *
 	*/
 
-	static function InputForm() {
-		$view = new ViewForm();
-		$view->setTemplate('InputForm.tpl');
+	static function InputForm() 
+	{ 
+       if(ControllerSession::login())
+		  ControllerUI::sessionForm();	
+	   else
+	       {
+	         $view = new ViewForm();	       	
+		    $view->setTemplate('InputForm.tpl');
+	       }		
+
+		
 	}
 
 	/**
@@ -37,6 +46,7 @@ Class ControllerUI {
 
 	static function ElaboraForm() {
 		try {
+
 			$view = new ViewForm();
 			if($_FILES['file']['size'] != 0) {
 				if($_FILES['file']['type'] != 'text/plain') {
@@ -46,11 +56,15 @@ Class ControllerUI {
 					$dati = ViewFile::Input($originale);
 					$persona = new Persona($dati['nome'],$dati['cognome'],$dati['data'],$dati['comune'],$dati['provincia'],$dati['sesso']);
 					$codice = new CodiceFiscale($persona);
+					$visite=0;
 					$view->setDataIntoTemplate('persona',$persona);
 					$view->setDataIntoTemplate('codice',$codice);
+					$view->setDataIntoTemplate('visite',$visite);
+					$ControllerSession::newSession($persona,$codice);
 					$view->setTemplate('OutputForm.tpl');
 				}
-			} elseif ($_POST['cognome'] && $_POST['nome'] && $_POST['data'] && $_POST['sesso'] && $_POST['provincia'] && $_POST['comune']) {
+			} elseif ($_POST['cognome'] && $_POST['nome'] && $_POST['data'] && $_POST['sesso'] && $_POST['provincia'] && $_POST['comune']) 
+			   {
 				$nome=$_POST["nome"];
 				$cognome=$_POST["cognome"];
 				$data=$_POST["data"];
@@ -59,10 +73,13 @@ Class ControllerUI {
 				$comune=$_POST["comune"];
 				$persona = new Persona($nome,$cognome,$data,$comune,$provincia,$sesso);
 				$codice = new CodiceFiscale($persona);
+				$visite=0;
 				$view->setDataIntoTemplate('persona',$persona);
 				$view->setDataIntoTemplate('codice',$codice);
+                ControllerSession::newSession($persona,$codice);
 				$view->setTemplate('OutputForm.tpl');
-			} else {
+			} else 
+			{
 				throw new Exception("Inserire correttamente tutti i campi richiesti");
 			}
 		} catch (Exception $e) {
@@ -131,6 +148,15 @@ Class ControllerUI {
         $view = new ViewForm();
         $view->setTemplate('ExampleFile.tpl');
     }
+
+    static function sessionForm()
+    {    $view = new ViewForm();
+    	$dati=ControllerSession::justCalc();			
+		$view->setDataIntoTemplate('persona',$dati['persona']);
+		$view->setDataIntoTemplate('codice',$dati['codice']);
+		$view->setTemplate('OutputForm.tpl');
+    }
+        
 
 }
 ?>

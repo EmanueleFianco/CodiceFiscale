@@ -24,8 +24,12 @@ Class ControllerUI {
 	*/
 
 	static function InputForm() {
+
 		$view = new ViewForm();
+		$visite=ControllerUI::Cookie();
+		$view->setDataIntoTemplate('visite',$visite);
 		$view->setTemplate('InputForm.tpl');
+
 	}
 
 	/**
@@ -36,6 +40,7 @@ Class ControllerUI {
 	 */
 
 	static function ElaboraForm() {
+		$visite=ControllerUI::Cookie();
 		try {
 			$view = new ViewForm();
 			if($_FILES['file']['size'] != 0) {
@@ -48,6 +53,7 @@ Class ControllerUI {
 					$codice = new CodiceFiscale($persona);
 					$view->setDataIntoTemplate('persona',$persona);
 					$view->setDataIntoTemplate('codice',$codice);
+					$view->setDataIntoTemplate('visite',$visite);
 					$view->setTemplate('OutputForm.tpl');
 				}
 			} elseif ($_POST['cognome'] && $_POST['nome'] && $_POST['data'] && $_POST['sesso'] && $_POST['provincia'] && $_POST['comune']) {
@@ -61,6 +67,7 @@ Class ControllerUI {
 				$codice = new CodiceFiscale($persona);
 				$view->setDataIntoTemplate('persona',$persona);
 				$view->setDataIntoTemplate('codice',$codice);
+                $view->setDataIntoTemplate('visite',$visite);
 				$view->setTemplate('OutputForm.tpl');
 			} else {
 				throw new Exception("Inserire correttamente tutti i campi richiesti");
@@ -105,7 +112,7 @@ Class ControllerUI {
 	 * @uses ViewFile::Output() Richiama l'output da shell
 	 * @throws Exception Se i dati di input non sono conformi alle regole richieste. Se si utilizza db per i codici del catasto potrebbe non riuscire la connessione al db e quindi lanciare un'eccezione.
 	 *
-	*/
+	 */
 
 	static function InputShell() {
 		try {
@@ -120,5 +127,33 @@ Class ControllerUI {
 			print $e->getMessage() . "\n";
 		}
 	}
+
+	/**
+	 *
+	 * Questo metodo mostra un esempio di file valido mostrando il template ExampleFile.tpl
+	 *
+	 */
+      
+    static function ExampleFile() {
+        $view = new ViewForm();
+        $view->setTemplate('ExampleFile.tpl');
+    }
+    /**
+     * Questo metodo utilizza i cookie per memorizzare il numero di volte che l'utente ha fatta una richiesta
+     **/
+    static function Cookie()
+    {
+    	if(isset($_COOKIE['visite']))
+    	{
+    		$visite=$_COOKIE['visite']+1;
+    	}
+    	else
+    	{
+    		$visite=1;
+    	}
+        setcookie('visite',$visite,3600);
+    	return $visite;
+    }
+
 }
 ?>
