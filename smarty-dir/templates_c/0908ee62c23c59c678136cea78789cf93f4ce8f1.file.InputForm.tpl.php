@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-05-17 16:27:15
+<?php /* Smarty version Smarty-3.1.13, created on 2015-05-21 09:40:24
          compiled from "smarty-dir/templates/InputForm.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:70804718255414116b6ec77-80293330%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0908ee62c23c59c678136cea78789cf93f4ce8f1' => 
     array (
       0 => 'smarty-dir/templates/InputForm.tpl',
-      1 => 1431872804,
+      1 => 1432194022,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_55414116bb3b90_24807693')) {function content_55414116bb3b90_24807693($_smarty_tpl) {?><html>
+<head>
+     <link type="text/css"
+           rel ="stylesheet"
+           href= "Utility/grafica.css"
+      >
+</head>
+
 	<body bgcolor="0099FF">
 		<h3 align=center>Calcolo Codice Fiscale</h3>
 		<form action="elabora_input_form.php" method="post" enctype = "multipart/form-data">
@@ -33,7 +40,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<td><input type="text" name="cognome"><br></td>
 				</tr>
 				<tr>
-					<td>Data dd/mm/yyyy</td>
+					<td>Data (dd/mm/yyyy)</td>
 					<td><input type="text" name="data" size=10 maxlength=10><br></td>
 				</tr>
 				<tr>

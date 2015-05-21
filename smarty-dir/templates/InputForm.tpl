@@ -1,4 +1,11 @@
 <html>
+<head>
+     <link type="text/css"
+           rel ="stylesheet"
+           href= "Utility/grafica.css"
+      >
+</head>
+
 	<body bgcolor="0099FF">
 		<h3 align=center>Calcolo Codice Fiscale</h3>
 		<form action="elabora_input_form.php" method="post" enctype = "multipart/form-data">
@@ -12,7 +19,7 @@
 					<td><input type="text" name="cognome"><br></td>
 				</tr>
 				<tr>
-					<td>Data dd/mm/yyyy</td>
+					<td>Data (dd/mm/yyyy)</td>
 					<td><input type="text" name="data" size=10 maxlength=10><br></td>
 				</tr>
 				<tr>

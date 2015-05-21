@@ -1,6 +1,12 @@
 <html>
+<head>
+	<link type="text/css"
+           rel ="stylesheet"
+           href= "Utility/graficaoutput.css"
+      >
+</head>
 	<body bgcolor="0099FF">
-		<h3 align=center >Risultato</h5>
+		<h3 align=center ><b>Risultato</b></h3>
 		<table>
 			<tr>
 				<td>Nome &nbsp</td>
@@ -32,5 +38,10 @@
 			</tr>
 			
 		</table>
+		<div id="credits">
+		   <p>
+		   	  Design and develop by:  Fabio Di Sabatino-Emanuele Fianco-Gioele Cicchini-Federica Caruso.
+
+		   </p>
 	</body>
 </html>
